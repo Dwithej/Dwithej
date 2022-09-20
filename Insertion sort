@@ -1,0 +1,32 @@
+#include <stdio.h>
+void sorting(char A[],int n1)
+{
+for(int i=1;i<n1;i++)
+{
+int key=A[i];
+int j = i - 1;
+while(j>=0 && key<A[j])
+{
+A[j+1]=A[j];
+j=j-1;
+}
+A[j+1]=key;
+
+}
+}
+int main()
+{
+int n;
+printf("Enter the number of elements: ");
+scanf("%d",&n);
+char a[n];
+printf("Enter the string: ");
+scanf("%s",&a);
+printf("\nAfter Insertion sort: ");
+sorting(a,n);
+for(int i=0;i<n;i++)
+{
+printf("%c ",a[i]);
+}
+return 0;
+}
