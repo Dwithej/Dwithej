@@ -1,0 +1,13 @@
+import java.util.Scanner;
+class dwithej 
+{
+    public static void main(String args[])
+    {
+        Scanner k=new Scanner(System.in);
+        float n1,n2,n3;
+        n1=k.nextFloat();
+        n2=k.nextFloat();
+        n3=n1+n2;
+        System.out.println("Sum of two numbers is="+n3);
+    }
+}
