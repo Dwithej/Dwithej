@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+class Box
+{
+    private:
+    int side=5;
+    protected:
+    int rad=1;
+    friend void display(Box obj);
+    friend int print(Box obj);
+    friend float area(Box obj);
+};
+void display(Box k)
+{
+    cout<<"width of the box : "<<k.side<<endl;
+    cout<<"Radius of circle is :"<<k.rad<<endl;
+}
+int print(Box n)
+{
+    return n.side*n.side;
+}
+float area(Box obj)
+{
+    int r=obj.rad;
+    return 3.14*r*r;
+}
+int main()
+{
+    Box obj;
+    display(obj);
+    int a=print(obj);
+    cout<<"Area of box : "<<a<<endl;
+    cout<<"Area of circle :"<<area(obj);
+    return 0;
+}
