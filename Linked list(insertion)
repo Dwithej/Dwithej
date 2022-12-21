@@ -1,0 +1,56 @@
+//INSERTION AT BEGINNING AND AT END 
+#include <stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *beg(struct node *head,int d)
+{
+    struct node *ptr=malloc(sizeof(struct node));
+    ptr->data=d;
+    ptr->next=NULL;
+    ptr->next=head;
+    head=ptr;
+    return head;
+}
+struct node *end(struct node *head,int d)
+{
+    struct node *temp,*ptr1=malloc(sizeof(struct node));
+    ptr1->data=d;
+    ptr1->next=NULL;
+    temp=head;
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+    temp->next=ptr1;
+    temp=head;
+    return temp;
+}
+void display(struct node *ptr)
+{
+     while(ptr!=NULL)
+    {
+        printf("%d\n",ptr->data);
+        ptr=ptr->next;
+    }
+}
+int main()
+{
+    struct node *head=malloc(sizeof(struct node));
+    struct node *ptr,*temp;
+    printf("\nEnter the first number :");
+    scanf("%d",&head->data);
+    head->next=NULL;
+    head=beg(head,4);
+    head=beg(head,8);
+    head=beg(head,6);
+    head=end(head,18);
+    head=end(head,17);
+    head=end(head,16);
+    ptr=head;
+    display(ptr);
+    return 0;
+}
