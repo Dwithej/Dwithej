@@ -1,0 +1,78 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node 
+{
+    int data;
+    struct node *next;
+};
+struct node *beg(struct node *head,int d)
+{
+    struct node *ptr=malloc(sizeof(struct node));
+    ptr->data=d;
+    ptr->next=NULL;
+    ptr->next=head;
+    head=ptr;
+    return head;
+}
+
+//Deletion from beginning of the linked list
+struct node *deletebeg(struct node *head)
+{
+    struct node *temp;
+    temp=head;
+    head=head->next;
+    free(temp);
+    return head;
+}
+
+//Deletion from end of the linked list
+struct node *deleteend(struct node *head)
+{
+    struct node *temp,*pre;
+    temp=head;
+    while(temp->next!=NULL)
+    {
+        pre=temp;
+        temp=temp->next;
+    }
+    pre->next=NULL;
+    free(temp);
+    
+    return head;
+}
+
+//display function to display linked list 
+void display(struct node *ptr)
+{
+     while(ptr!=NULL)
+    {
+        printf("%d\n",ptr->data);
+        ptr=ptr->next;
+    }
+}
+int main()
+{
+    struct node *ptr,*head=malloc(sizeof(struct node));
+    head->data=2;
+    head->next=NULL;
+    head=beg(head,4);
+    head=beg(head,8);
+    head=beg(head,12);
+    head=beg(head,16);
+    ptr=head;
+    printf("Before deleting :\n");
+    display(ptr);
+    
+    //calling deletebeg function
+    head=deletebeg(head);
+    ptr=head;
+    printf("\nAfter deletion from beginning :\n");
+    display(ptr);      //calling display function
+    
+    //calling deleteend function
+    head=deleteend(head);
+    ptr=head;
+    printf("\nAfter deleting from end :\n");
+    display(ptr);       //calling display function
+    return 0;
+}
