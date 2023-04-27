@@ -1,0 +1,236 @@
+from tkinter import*
+from tkinter import messagebox
+import sqlite3
+
+#this is a function to collect the data from the user and insert into our database
+def submit():
+    conn=sqlite3.connect('deatils.db')
+    c=conn.cursor()
+    
+    r=rollno.get()
+    f=fname.get()
+    #s=sname.get()
+    d=dob.get()
+    a=address.get()
+    s=state.get()
+    t=tm.get()
+    i=im.get()
+    
+    #Here we are inserting data into our database
+    v="INSERT INTO dwithej (rollno,fname,dob,address,state,tm,im) VALUES(?,?,?,?,?,?,?)"
+    conn.execute(v,(r,f,d,a,s,t,i))   
+    conn.commit()
+    conn.close()
+    
+    #this all is to clear the inputs (if we press the update button inputs willbe deleted)
+    rollno.delete(0,END)
+    fname.delete(0,END)
+    #sname.delete(0,END)
+    dob.delete(0,END)
+    address.delete(0,END)
+    #city.delete(0,END)
+    state.delete(0,END)
+    tm.delete(0,END)
+    im.delete(0,END)
+    #age.delete(0,END)
+    
+
+#this function is to print the ouput
+def query():
+    conn=sqlite3.connect('deatils.db')
+    c=conn.cursor()
+    c.execute("select *from dwithej")
+    print(c.fetchall())
+    print("\n")
+    
+    
+#this is search function(if we want to view any records details we can see the deatils of the records with the help of the search funcntion)
+def search():
+    n=search_entry.get()
+    conn=sqlite3.connect('deatils.db')
+    c=conn.cursor()
+    #n=search_entry.get()
+    for r in conn.execute("select rollno,fname,dob,address,state,tm,im from dwithej where rollno=?",(n,)):
+            msg=messagebox.showinfo("FOUND",r)
+    if(n==0):
+        msg1=messagebox.showwarning("NOT FOUND")
+    
+    
+#this function is to delete records information from the database
+def delete():
+    x=del_entry.get()
+    conn=sqlite3.connect('deatils.db')
+    c=conn.cursor()
+    c.execute('delete from dwithej where rollno=?',(x,))  #here we used delete to delete the row of the records from the database
+    #print(c.fetchall())
+    conn.commit()
+    conn.close()
+    #print(c.fetchall())
+
+    
+    
+#this function used to edit records information which was already uploaded.
+#after uploading also we can make changes in the database
+    
+def edit():
+    rot=Tk()
+    rot.title("Edit")
+    rot.geometry("500x500")
+    conn=sqlite3.connect('deatils.db')
+    c=conn.cursor()
+    
+    global rollno_rot
+    global fname_rot
+    #global sname_rot
+    global dob_rot
+    global address_rot
+    global state_rot
+    global tm_rot
+    global im_rot
+    rollno_rot=Entry(rot,width=50)
+    rollno_rot.grid(row=0,column=1,padx=5,pady=10)
+    fname_rot=Entry(rot,width=50)
+    fname_rot.grid(row=1,column=1,padx=5,pady=10)
+    #sname_rot=Entry(rot,width=50)
+    #sname_rot.grid(row=2,column=1,padx=5,pady=10)
+    dob_rot=Entry(rot,width=50)
+    dob_rot.grid(row=3,column=1,padx=5,pady=10)
+    address_rot=Entry(rot,width=50)
+    address_rot.grid(row=4,column=1,padx=5,pady=10)
+    state_rot=Entry(rot,width=50)
+    state_rot.grid(row=5,column=1,padx=5,pady=10)
+    tm_rot=Entry(rot,width=50)
+    tm_rot.grid(row=6,column=1,padx=5,pady=10)
+    im_rot=Entry(rot,width=50)
+    im_rot.grid(row=7,column=1,padx=5,pady=10)
+
+    rn1_rot=Label(rot,text="Roll No").grid(row=0,column=0,padx=5,pady=10)
+    fn1_rot=Label(rot,text="First name").grid(row=1,column=0,padx=5,pady=10)
+    #sn1_rot=Label(rot,text="Middle name").grid(row=2,column=0,padx=5,pady=10)
+    #d1_rot=Label(rot,text="Surname name").grid(row=2,column=0,padx=5,pady=10)
+    do1_rot=Label(rot,text="Date Of Birth").grid(row=3,column=0,padx=5,pady=10)
+    a1_rot=Label(rot,text="Address").grid(row=4,column=0,padx=5,pady=10)
+    #c1=Label(root,text="City").grid(row=3,column=0 )
+    s1_rot=Label(rot,text="State").grid(row=5,column=0,padx=5,pady=10)
+    #a1=Label(root,text="Age").grid(row=5,column=0)
+    t1_rot=Label(rot,text="10th Marks").grid(row=6,column=0,padx=5)
+    it1_rot=Label(rot,text="11th Marks").grid(row=7,column=0,padx=5,pady=10)
+    
+    r=edit_entry.get()
+    c.execute('select *from dwithej WHERE rollno=?',(r,))
+    record=c.fetchall()
+    
+    for i in record:
+        rollno_rot.insert(0,i[0])
+        fname_rot.insert(0,i[1])
+        #sname_rot.insert(0,i[2])
+        dob_rot.insert(0,i[3])
+        address_rot.insert(0,i[4])
+        state_rot.insert(0,i[5])
+        tm_rot.insert(0,i[6])
+        im_rot.insert(0,i[7])
+
+    
+    save_b=Button(rot,text="SAVE",command=update).grid(row=9,column=0)
+    conn.commit()
+    
+
+    
+#after editing the records info we have to update our database.
+#means changes which are made that should be updated in our database
+    
+def update():
+    conn=sqlite3.connect('deatils.db')
+    c=conn.cursor()
+    r=edit_entry.get()
+    c.execute("""UPDATE dwithej SET
+               rollno=:roll,
+               fname=:first,
+               dob=:date,
+               address=:add,
+               state=:st,
+               tm=:tm1,
+               im=:im1
+               
+               WHERE oid =:oid""",
+             {
+                 'roll':rollno_rot.get(),
+                 'first':fname_rot.get(),
+                 'date':dob_rot.get(),
+                 'add':address_rot.get(),
+                 'st':state_rot.get(),
+                 'tm1':tm_rot.get(),
+                 'im1':im_rot.get(),
+                 'oid':r
+                 
+             })
+    query='UPDATE dwithej set fname=?,dob=?,address=?,state=?,tm=?,im=? where rollno=?'
+    c.execute(query,(fname_rot.get(),dob_rot.get(),address_rot.get(),state_rot.get(),tm_rot.get(),im_rot.get(),rollno_rot.get()))
+    conn.commit()
+    c.close() 
+    #rot.destroy()
+    
+root=Tk()    #creating root window
+root.title("Student")   # root window title
+root.geometry("500x500")    # root window with dimensions (widthxheight)
+root.configure(background="#bbfaef")   #background color of our window
+conn=sqlite3.connect('deatils.db')    #connecting to our database with the help of connect
+c=conn.cursor()     #creating an object for our database
+c.execute("""create table dwithej(
+                             rollno varchar(20) NOT NULL,
+                             fname varchar(20) NOT NULL,
+                             dob varchar(10) NOT NULL,
+                             address varchar(20) NOT NULL,
+                             state varchar(20) NOT NULL,
+                             tm INTEGER NOT NULL,
+                             im FLOAT NOT NULL)""")  
+conn.commit()
+
+rollno=Entry(root,width=50)
+rollno.grid(row=2,column=1,padx=5,pady=10)
+fname=Entry(root,width=50)
+fname.grid(row=3,column=1,padx=5,pady=10)
+#sname=Entry(root,width=50)
+#sname.grid(row=4,column=1,padx=5,pady=10)
+dob=Entry(root,width=50)
+dob.grid(row=5,column=1,padx=5,pady=10)
+address=Entry(root,width=50)
+address.grid(row=6,column=1,padx=5,pady=10)
+state=Entry(root,width=50)
+state.grid(row=7,column=1,padx=5,pady=10)
+tm=Entry(root,width=50)
+tm.grid(row=8,column=1,padx=5,pady=10)
+im=Entry(root,width=50)
+im.grid(row=9,column=1,padx=5,pady=10)
+
+k=Label(root,text="Student Managemnet DataBase",font=('Lucida Calligraphy',20),fg="#bf160a",bg="#bbfaef").grid(row=0,column=1)
+
+rn1=Label(root,text="Roll No",font=('Lucida Calligraphy',12),fg="#232929",bg="#bbfaef").grid(row=2,column=0,padx=5,pady=10)
+fn1=Label(root,text="First name",font=('Lucida Calligraphy',12),fg="#232929",bg="#bbfaef").grid(row=3,column=0,padx=5,pady=10)
+#sn1=Label(root,text="Surname name",font=('Lucida Calligraphy',12),fg="#232929",bg="#bbfaef").grid(row=4,column=0,padx=5,pady=10)
+bn1=Label(root,text="Date of Birth",font=('Lucida Calligraphy',12),fg="#232929",bg="#bbfaef").grid(row=5,column=0,padx=5,pady=10)
+a1=Label(root,text="Address",font=('Lucida Calligraphy',12),fg="#232929",bg="#bbfaef").grid(row=6,column=0,padx=5,pady=10)
+#c1=Label(root,text="City").grid(row=3,column=0 )
+s1=Label(root,text="State",font=('Lucida Calligraphy',12),fg="#232929",bg="#bbfaef").grid(row=7,column=0,padx=5,pady=10)
+#a1=Label(root,text="Age").grid(row=5,column=0)
+t1=Label(root,text="10th Marks",font=('Lucida Calligraphy',12),fg="#232929",bg="#bbfaef").grid(row=8,column=0,padx=5)
+it1=Label(root,text="11th Marks",font=('Lucida Calligraphy',12),fg="#232929",bg="#bbfaef").grid(row=9,column=0,padx=5,pady=10)
+
+search_entry=Entry(root,width=20)
+search_entry.grid(row=11,column=1,padx=10)
+
+del_entry=Entry(root,width=20)
+del_entry.grid(row=12,column=1,padx=10)
+
+edit_entry=Entry(root,width=20)
+edit_entry.grid(row=13,column=1)
+
+sub_b=Button(root,text="UPDATE",command=submit,bg="#e87605").grid(row=10,column=0,pady=10,padx=30)
+dis_b=Button(root,text="DISPLAY",command=query,bg="#e87605").grid(row=10,column=1)
+ser_b=Button(root,text="SEARCH",command=search,bg="#65d683").grid(row=11,column=0,padx=5,pady=10)
+del_b=Button(root,text="DELETE",command=delete,bg="#1fe805").grid(row=12,column=0,padx=5,pady=10)
+edit_b1=Button(root,text="Select ID to edit",command=edit,bg="#65d683").grid(row=13,column=0)
+edit_b=Button(root,text="EDIT",command=edit,bg="#38e84f").grid(row=15,column=0)
+conn.commit()
+conn.close()
+root.mainloop()
