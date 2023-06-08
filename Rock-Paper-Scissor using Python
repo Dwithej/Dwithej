@@ -1,0 +1,45 @@
+import random
+def game():
+    get_input2=input("Enter Your choice   : ").lower()  #converting UPPER case to lower case (.lower())
+    list=['rock','paper','scissor']
+    
+    list1=random.choice(list)         #generating random one among rock,paper and scissor
+    print("Computer's Choice is:",list1)
+    
+    if get_input2==list1:        #Comparing your entry matches with computer's option or not
+        print("TIE")
+    elif get_input2=='rock':
+        if list1=='scissor':
+            print("YOU WON THE GAME")
+        else:
+            print("COMPUTER WON THE GAME")
+    elif get_input2=='paper':
+        if list1=='scissor':
+            print("COMPUTER WON THE GAME")
+        else:
+            print("YOU WON THE GAME")
+    elif get_input2=='scissor':
+        if list1=='paper':
+            print("YOU WON THE GAME")
+        else:
+            print("COMPUTER WON THE GAME")
+    else:
+        print("Enter valid input(either rock or paper or scissor)")
+        
+    #asking user whether he interested in playing again or not.   
+    get_input3=input("Enter 'Y' to paly again (OR) Enter 'N' to quit the game :").lower()  
+    if get_input3=='n':
+        print("THANKYOU FOR PLAYING")
+    elif get_input3=='y':
+        game()
+    else:
+        print("------------> Enter either Y or N <-------------")
+        
+        
+get_input1=input("Enter 'S' to start the game :").lower()
+
+if get_input1=='s':
+    game()
+else:
+    print("-----------> Enter 'S' to start the game <-------------")
+    
