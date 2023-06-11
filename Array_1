@@ -1,0 +1,14 @@
+array=list(map(int,input("Enter your array elements (OR) integer values").split()))
+a1=[]
+a2=[]
+for i in array:
+    if i<0:
+        a1.append(i)
+    else:
+        a2.append(i)
+    array=a1+a2
+
+#here I am separating postive and negative values not in contiguous form.
+#they get separated based on input(based on user's input)
+
+print("Elements with separate negative and positive values",array)
