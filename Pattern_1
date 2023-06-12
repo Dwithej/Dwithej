@@ -1,0 +1,12 @@
+n=int(input("Enter n value :"))
+print("------>The pattern is<-------")
+
+for i in range(n):                    #range(start,stop,step).step not mentioned means it will increment by 1
+    for j in range(0,i+1):            #start defaulty takes 0 if not mentioned
+        print ('* ', end="")
+    print('')
+    
+for i in range(n,0,-1):               #range(start,stop,step). Here step=-1 means i will decrement by -1
+    for j in range(i):
+        print('* ', end="")
+    print('')
