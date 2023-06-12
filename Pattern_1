@@ -8,5 +8,21 @@ for i in range(n):                    #range(start,stop,step).step not mentioned
     
 for i in range(n,0,-1):               #range(start,stop,step). Here step=-1 means i will decrement by -1
     for j in range(i):
-        print('* ', end="")
+        print('* ', end="")           
     print('')
+
+
+
+''' Output for this code is given below:
+Enter n value :5
+------>The pattern is<-------
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+* * * * * 
+* * * * 
+* * * 
+* * 
+*     '''
