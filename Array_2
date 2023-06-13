@@ -1,0 +1,20 @@
+array=list(map(int,input("Enter array values :").split()))
+
+odd_count=[]            #list for storing values that occured odd number of times
+
+for i in range(0,len(array)):
+    
+    count=0
+    current_element=array[i]
+    
+    for j in range(0,len(array)):
+        if current_element==array[j]:
+            count=count+1
+    
+    if count%2!=0:     
+        odd_count.append(current_element)  #using append fucntion to add values that occured odd number of time into list odd-count
+
+# *set(list) is a method to remove the duplicates.It is fastest method
+
+print("Values that occured odd number of times are :",*set(odd_count))
+            
