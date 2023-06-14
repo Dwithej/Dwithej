@@ -1,0 +1,59 @@
+from tkinter import*
+from tkinter import messagebox 
+import random
+
+#List containing rock,paper and scissor
+list=['rock','paper','scissor']
+
+#start function
+def start():
+    user=user_entry.get().lower()
+    
+    #selecting randomly from the list
+    computer=random.choice(list)
+    computer_label.config(text="Computer's choice is :" +computer)
+    
+    if user==computer:
+        messagebox.showinfo("showinfo", "------>TIE<------")
+    elif user=='rock':
+        if computer=='scissor':
+            messagebox.showinfo("showinfo", "--->YOU WON THE GAME<---")
+        else:
+            messagebox.showinfo("showinfo", "-->COMPUTER WON THE GAME<--")
+    elif user=='paper':
+        if computer=='scissor':
+            messagebox.showinfo("showinfo", "-->COMPUTER WON THE GAME<--")
+        else:
+            messagebox.showinfo("showinfo", "--->YOU WON THE GAME<---")
+    elif user=='scissor':
+        if computer=='paper':
+            messagebox.showinfo("showinfo", "--->YOU WON THE GAME<---")
+        else:
+            messagebox.showinfo("showinfo", "-->COMPUTER WON THE GAME<--")
+    else:
+        messagebox.showwarning("showwarning", "Wrong Input")
+            
+
+root=Tk()
+
+#title of our GUI interface
+root.title("Rock-Paper-Scissor Game")
+root.geometry("400x200")
+
+#backgroundcolor of our GUI interface
+root.configure(background="#49b3b3") 
+
+label1=Label(root,text="Enter your choice :",font=('Lucida Calligraphy',13),bg="#49b3b3",padx=5,pady=5)
+label1.place(x=5,y=5)
+
+user_entry=Entry(root,font = ('Lucida Calligraphy',13,'normal'))
+user_entry.place(x=190,y=5,width=170,height=25)
+
+play_button = Button(root, text="Play",font = ('Lucida Calligraphy',13,'normal'), command=start)
+play_button.place(x=190,y=40,width=70,height=30)
+
+computer_label = Label(root, text="Computer's choice is: ",font=('Lucida Calligraphy',13),bg="#49b3b3")
+computer_label.place(x=5,y=80)
+
+
+root.mainloop()
