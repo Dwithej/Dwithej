@@ -1,0 +1,71 @@
+from tkinter import*
+
+#list of names of currencies
+Currency_list = ["INR", "EUR", "CNY", "CAD", "DKK", "USD"]
+
+#convert function to convert one currrency to another currency
+def convert():
+    
+    #here I am importing messagebox 
+    from tkinter import messagebox
+    
+    #forex_python is a currency conversion library
+    #Before this we need to run this 'pip install forex_python'
+    from forex_python.converter import CurrencyRates
+    c = CurrencyRates()
+    amount=entry1.get()
+    from1=input1.get()
+    to1=input2.get()
+    if amount=="":
+        messagebox.showwarning("showwarning", "Wrong Input")
+    else:
+        
+        #Exception Handling
+        try:
+            float(amount)
+            if from1 not in Currency_list or to1 not in Currency_list:
+                messagebox.showwarning("showwarning", "select correct from and to currency")
+            else:
+                newamount = c.convert(from1, to1, float(amount))
+                messagebox.showinfo("information",newamount)
+            
+        except ValueError:
+            messagebox.showwarning("showwarning", "Enter only numbers\n(not strings)")
+            
+#information function
+def information():
+    window=Tk()
+    window.geometry("250x250")
+    window.title("Information")
+    label1=Label(window,text="INR--Indian Rupee(1 INR=0.011EUR)\n\nCAD--Canadian Dollar(1 CAD=61.66INR)\n\nUSD--United States Dollar(1 USD=82.19INR)\n\nCNY--Chinese Yuan(1 CNY=11.48INR)\n\nDKK--Danish Krone(1 DKK=11.96INR)\n\nEUR--Euro(1 EUR=89.10INR)").pack()
+
+    
+        
+root=Tk()
+root.geometry("800x400")
+root.configure(background="skyblue")
+root.title("CurrencyConverter")
+title_label=Label(root,text="Currency Converter using tkinter Python",font=('Lucida Calligraphy',15),fg='red',bg='skyblue').grid(row=0,column=1)
+label1=Label(root,text="Enter amount to convert :",font=('Lucida Calligraphy',15),bg='skyblue').grid(row=1,column=0,padx=10,pady=10)
+label2=Label(root,text="Select from currency :",font=('Lucida Calligraphy',15),bg='skyblue').grid(row=2,column=0,padx=10,pady=25)
+label3=Label(root,text="Select to currency :",font=('Lucida Calligraphy',15),bg='skyblue').grid(row=4,column=0,padx=10,pady=5)
+
+entry1=Entry(root)
+entry1.grid(row=1,column=1,padx=65,pady=10)
+
+input1 = StringVar(root)
+input2 = StringVar(root)
+
+From =OptionMenu(root, input1, *Currency_list)
+To =OptionMenu(root, input2, *Currency_list)
+  
+From.grid(row=2, column=1,ipadx=20)
+To.grid(row=4, column=1, ipadx=20)
+
+button1=Button(root,text="Convert",font=('Lucida Calligraphy',10),command=convert)
+button1.grid(row=6,column=1,padx=15,pady=15)
+
+button2=Button(root,text="Need Information",font=('Lucida Calligraphy',10),command=information)
+button2.grid(row=6,column=0,padx=15,pady=15)
+
+root.mainloop()
