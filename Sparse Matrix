@@ -1,9 +1,9 @@
 #include<stdio.h>
 int main(){
     int arr[100][100],i,j,r,c,count,p;
-    printf("Enter the row values :");
+    printf("Enter row values :");
     scanf("%d",&r);
-     printf("\nEnter the columns values :");
+     printf("\nEnter columns values :");
     scanf("%d",&c);
     printf("\nEnter the matrix :");
     for (i=0;i<r;i++)    
