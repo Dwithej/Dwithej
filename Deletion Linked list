@@ -66,7 +66,7 @@ int main()
     //calling deletebeg function
     head=deletebeg(head);
     ptr=head;
-    printf("\nAfter deletion from beginning :\n");
+    printf("\nAfter deleting from beginning :\n");
     display(ptr);      //calling display function
     
     //calling deleteend function
