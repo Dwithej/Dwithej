@@ -1,4 +1,4 @@
-array=list(map(int,input("Enter array values :").split()))
+array=list(map(int,input("Enter array values :").split()))     #taking multiple inputs from user and storing it in list
 
 odd_count=[]            #list for storing values that occured odd number of times
 
