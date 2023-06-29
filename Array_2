@@ -12,7 +12,7 @@ for i in range(0,len(array)):
             count=count+1
     
     if count%2!=0:     
-        odd_count.append(current_element)  #using append fucntion to add values that occured odd number of time into list odd-count
+        odd_count.append(current_element)    #using append fucntion to add values that occured odd number of time into list odd-count
 
 # *set(list) is a method to remove the duplicates.It is fastest method
 
