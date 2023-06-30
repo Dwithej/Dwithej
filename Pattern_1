@@ -6,7 +6,7 @@ for i in range(n):                    #range(start,stop,step).step not mentioned
         print ('* ', end="")
     print('')
     
-for i in range(n,0,-1):               #range(start,stop,step). Here step=-1 means i will decrement by -1
+for i in range(n,0,-1):               #range(start,stop,step). Here step=-1 means i will decrement by -1 and it(loop) will stop when i equals to 0
     for j in range(i):
         print('* ', end="")           
     print('')
