@@ -15,7 +15,7 @@ for i in range(n,0,-1):               #range(start,stop,step). Here step=-1 mean
 
 ''' Output for this code is given below:
 Enter n value :5
------->The pattern is<-------
+------>The Pattern is<-------
 * 
 * * 
 * * * 
