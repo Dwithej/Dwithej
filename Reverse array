@@ -2,9 +2,9 @@
 int main()
 {
     int a[100],i,n;
-    printf("Enter the size of the array :");
+    printf("Enter size of the array :");
     scanf("%d",&n);
-    printf("\nEnter elements in the array :");
+    printf("\nEnter array elements :");
     for(i=0;i<n;i++)
     {
     scanf("%d",&a[i]);
