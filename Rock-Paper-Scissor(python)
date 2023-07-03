@@ -7,7 +7,7 @@ list=['rock','paper','scissor']
 
 #start function
 def start():
-    user=user_entry.get().lower()
+    user=user_entry.get().lower()     #converting uppercase to lowercase using ".lower()"
     
     #selecting randomly from the list
     computer=random.choice(list)
