@@ -2,7 +2,7 @@ array=list(map(int,input("Enter array values :").split()))     #taking multiple 
 
 odd_count=[]            #list for storing values that occured odd number of times
 
-for i in range(0,len(array)):
+for i in range(0,len(array)):    #range(start,stop,step)
     
     count=0
     current_element=array[i]
