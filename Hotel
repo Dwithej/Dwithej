@@ -6,7 +6,7 @@ void main()
  char n[20];
  float cgst, gst,dis,gt;
  clrscr();
- printf("\n ********** PUBG hotel ************");
+ printf("\n ********** Hotel KCPD ************");
  printf("\n     ------- menu ----------");
  printf("\n 0 = chicken biriyani \n 1= mutton biriyani \n 2=prawns biriyani ");
  printf("\n 3=family pack \n 4=icecreams ");
