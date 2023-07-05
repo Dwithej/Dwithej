@@ -39,6 +39,7 @@ void main()
 	printf("\n the items u enterd is overed for to day plz come tomorrow");
     }
  }
+  //here we are calculating cgst,gst and dis
   cgst = 0.05*(t);
   gst  = 0.12*(t);
   dis  = 0.3*(t);
