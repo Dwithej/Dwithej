@@ -226,6 +226,7 @@ del_entry.grid(row=12,column=1,padx=10)
 edit_entry=Entry(root,width=20)
 edit_entry.grid(row=13,column=1)
 
+#command=function_name means we are calling that function using button.
 sub_b=Button(root,text="UPDATE",command=submit,bg="#e87605").grid(row=10,column=0,pady=10,padx=30)
 dis_b=Button(root,text="DISPLAY",command=query,bg="#e87605").grid(row=10,column=1)
 ser_b=Button(root,text="SEARCH",command=search,bg="#65d683").grid(row=11,column=0,padx=5,pady=10)
