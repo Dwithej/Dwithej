@@ -4,6 +4,7 @@ import sqlite3
 
 #this is a function to collect the data from the user and insert into our database
 #function name is submit
+
 def submit():
     conn=sqlite3.connect('deatils.db')
     c=conn.cursor()
