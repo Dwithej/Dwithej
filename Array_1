@@ -1,4 +1,6 @@
 array=list(map(int,input("Enter your array elements (OR) integer values").split()))
+
+#two empty lists a1 and a2
 a1=[]
 a2=[]
 for i in array:
