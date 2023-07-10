@@ -11,6 +11,6 @@ int main()
     for(i=2;i<=n;i++)
     {
         a[i]=a[i-1]+a[i-2];
-        printf("%lld\t",a[i]);        // %lld is format specifier of long long
+        printf("%lld\t",a[i]);        // %lld is Format Specifier for long long
     }
 }
