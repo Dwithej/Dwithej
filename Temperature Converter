@@ -9,7 +9,7 @@ root.title("Tempareture Converter")
 
 #In this function I am converting celcius into fahrenheit
 def convert_f():
-    cel=temp_entry.get()
+    cel=temp_entry.get()  #getting input from entry widget
     if cel=="":
         messagebox.showwarning("showwarning", "Wrong Input")
     else:
