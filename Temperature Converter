@@ -7,7 +7,7 @@ root.configure(background="#f0d584")   # "#f0d584" is HEX code
 root.title("Tempareture Converter")
 
 
-#In this function i am converting celcius into fahrenheit
+#In this function I am converting celcius into fahrenheit
 def convert_f():
     cel=temp_entry.get()
     if cel=="":
