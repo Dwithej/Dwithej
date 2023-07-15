@@ -23,7 +23,7 @@ int main(){
             printf("%d\t",arr[i][j]);    
         }    
     }  
-        for (i=0;i<r;i++)    
+    for (i=0;i<r;i++)    
     {    
         for (j=0;j<c;j++)    
         {    
