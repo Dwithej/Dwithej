@@ -25,6 +25,7 @@ struct node *deletebeg(struct node *head)
     return head;
 }
 
+
 //Deletion from end of the linked list
 struct node *deleteend(struct node *head)
 {
