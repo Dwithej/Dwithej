@@ -21,7 +21,6 @@ def convert_f():
             f_entry.insert(0,new_fah)
         except ValueError:
             messagebox.showwarning("showwarning", "Enter only numbers\n(not strings)")
-   
     
 #In this function i am converting fahrenheit into celcius
 def convert_c():
