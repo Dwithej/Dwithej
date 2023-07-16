@@ -6,7 +6,6 @@ root.geometry("700x400")
 root.configure(background="#f0d584")   # "#f0d584" is HEX code
 root.title("Tempareture Converter")
 
-
 #In this function I am converting celcius into fahrenheit
 def convert_f():
     cel=temp_entry.get()  #getting input from entry widget
