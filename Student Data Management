@@ -70,7 +70,6 @@ def delete():
     #print(c.fetchall())
 
     
-    
 #this function used to edit records information which was already uploaded.
 #after uploading also we can make changes in the database
     
