@@ -134,7 +134,6 @@ def edit():
     save_b=Button(rot,text="SAVE",command=update).grid(row=9,column=0)
     conn.commit()
     
-
     
 #after editing the records info we have to update our database.
 #means changes which are made that should be updated in our database
