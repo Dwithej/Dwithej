@@ -68,12 +68,12 @@ int main()
     head=deletebeg(head);
     ptr=head;
     printf("\nAfter deleting from beginning :\n");
-    display(ptr);      //calling display function
+    display(ptr);        //calling display function
     
     //calling deleteend function
     head=deleteend(head);
     ptr=head;
     printf("\nAfter deleting from end :\n");
-    display(ptr);       //calling display function
+    display(ptr);         //calling display function
     return 0;
 }
