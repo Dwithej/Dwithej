@@ -37,7 +37,6 @@ def game():
         
         
 get_input1=input("Enter 'S' to start the game :").lower()
-
 if get_input1=='s':
     game()
 else:
