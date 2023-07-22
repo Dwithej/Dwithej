@@ -1,6 +1,6 @@
 import random
 def game():
-    get_input2=input("Enter Your choice   : ").lower()  #converting UPPER case to lower case (.lower())
+    get_input2=input("Enter Your choice   : ").lower()  #Converting UPPER case to lower case (.lower())
     list=['rock','paper','scissor']
     
     list1=random.choice(list)         #generating random one among rock,paper and scissor
