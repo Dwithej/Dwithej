@@ -7,7 +7,6 @@ import sqlite3
 def submit():
     conn=sqlite3.connect('deatils.db')
     c=conn.cursor()
-    
     r=rollno.get()
     f=fname.get()
     #s=sname.get()
