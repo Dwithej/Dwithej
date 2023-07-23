@@ -69,8 +69,7 @@ def delete():
 
     
 #this function used to edit records information which was already uploaded.
-#after uploading also we can make changes in the database
-    
+#after uploading also we can make changes in the database  
 def edit():
     rot=Tk()
     rot.title("Edit")
