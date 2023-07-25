@@ -40,7 +40,7 @@ root=Tk()
 root.title("Rock-Paper-Scissor Game")
 root.geometry("400x200")
 
-#backgroundcolor of our GUI interface
+#BackGroundcolor of our GUI interface
 root.configure(background="#49b3b3") 
 
 label1=Label(root,text="Enter your choice :",font=('Lucida Calligraphy',13),bg="#49b3b3",padx=5,pady=5)
