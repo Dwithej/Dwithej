@@ -38,8 +38,7 @@ def information():
     window.title("Information")
     label1=Label(window,text="INR--Indian Rupee(1 INR=0.011EUR)\n\nCAD--Canadian Dollar(1 CAD=61.66INR)\n\nUSD--United States Dollar(1 USD=82.19INR)\n\nCNY--Chinese Yuan(1 CNY=11.48INR)\n\nDKK--Danish Krone(1 DKK=11.96INR)\n\nEUR--Euro(1 EUR=89.10INR)").pack()
 
-    
-        
+            
 root=Tk()
 root.geometry("800x400")
 root.configure(background="skyblue")
