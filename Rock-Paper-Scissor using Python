@@ -7,7 +7,7 @@ def game():
     list1=random.choice(list)         #generating random one among rock,paper and scissor
     print("Computer's Choice is:",list1)
     
-    if get_input2==list1:        #Comparing your entry matches with computer's option or not
+    if get_input2==list1:            #Comparing your entry matches with computer's option or not
         print("TIE")
     elif get_input2=='rock':
         if list1=='scissor':
