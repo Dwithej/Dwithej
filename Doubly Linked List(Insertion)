@@ -17,6 +17,7 @@ struct node *beg(struct node *head,int d)
     head=new;
     return head;
 }
+
 int main()
 {
     struct node *temp,*head=malloc(sizeof(struct node));
