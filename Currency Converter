@@ -30,7 +30,7 @@ def convert():
                 newamount = c.convert(from1, to1, float(amount))
                 messagebox.showinfo("information",newamount)
             
-        except ValueError:
+        except ValueError:                
             messagebox.showwarning("showwarning", "Enter only numbers\n(not strings)")
             
 #information function
