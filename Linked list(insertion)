@@ -1,11 +1,13 @@
 //INSERTION AT BEGINNING AND AT END 
 #include <stdio.h>
 #include<stdlib.h>
+
 struct node
 {
     int data;
     struct node *next;
 };
+
 struct node *beg(struct node *head,int d)
 {
     struct node *ptr=malloc(sizeof(struct node));
