@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class SumOfIntegers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] integers = new int[5];
+        int sum = 0;
+
+        try {
+            for (int i = 0; i < 5; i++) {
+                System.out.print("Enter integer " + (i + 1) + ": ");
+                integers[i] = scanner.nextInt();
+                sum += integers[i];
+            }
+
+            System.out.println("Sum of entered integers is: " + sum);
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Invalid input. Please enter integers only.");
+        }
+
+        scanner.close();
+    }
+}
