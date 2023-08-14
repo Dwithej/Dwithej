@@ -53,6 +53,7 @@ void display(struct node *ptr)
         ptr=ptr->next;
     }
 }
+
 int main()
 {
     struct node *ptr,*head=malloc(sizeof(struct node));
