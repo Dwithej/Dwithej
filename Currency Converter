@@ -16,10 +16,11 @@ def convert():
     amount=entry1.get()
     from1=input1.get()
     to1=input2.get()
+
     if amount=="":
         messagebox.showwarning("showwarning", "Wrong Input")
     else:
-        
+
         #Exception Handling
         try:
             float(amount)
