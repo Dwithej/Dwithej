@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.Scanner;
-class dwithej
+class fibonacciSeries
 {
     public static void main(String args[])
     {
