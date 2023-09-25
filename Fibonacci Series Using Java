@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.Scanner;
+class dwithej
+{
+    public static void main(String args[])
+    {
+        Scanner o=new Scanner(System.in);
+        int[] a=new int[100];
+        int i,num;
+        num=o.nextInt();
+        a[0]=0;
+        a[1]=1;
+        for(i=2;i<=num;i++)
+        {
+            a[i]=a[i-1]+a[i-2];
+        }
+        for(i=0;i<=num;i++)
+        {
+            System.out.println(a[i]+"\t");
+        }
+    }
+}
