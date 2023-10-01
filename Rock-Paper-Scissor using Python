@@ -25,7 +25,8 @@ def game():
             print("COMPUTER WON THE GAME")
     else:
         print("Enter valid input(either rock or paper or scissor)")
-        
+
+
     #asking user whether he interested in playing again or not.   
     get_input3=input("Enter 'Y' to paly again (OR) Enter 'N' to quit the game :").lower()  
     if get_input3=='n':
