@@ -1,5 +1,4 @@
 import random
-
 def game():
     get_input2=input("Enter Your choice   : ").lower()  #Converting UPPER case to lower case (.lower())
     list=['rock','paper','scissor']
